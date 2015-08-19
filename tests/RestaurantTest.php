@@ -24,16 +24,18 @@
         function test_getName()
         {
             //Arrange
-            $name = "Mario's Pizza";
-            $test_restaurant = new Restaurant($name);
-
+            $test_name = "Mario's Pizza";
+            $test_seats = 100;
+            $test_location = "Downtown";
+            $test_evenings = true;
+            $test_restaurant = new Restaurant($test_name, $test_seats, $test_location, $test_evenings);
 
             //Act
             $result = $test_restaurant->getName();
 
 
             //Assert
-            $this->assertEquals ($name,$result);
+            $this->assertEquals($test_name, $result);
         }
 
 
