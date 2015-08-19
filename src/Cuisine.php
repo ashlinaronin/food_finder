@@ -48,12 +48,31 @@
         function save()
         {
 
+            $GLOBALS['DB']->exec(
+                "INSERT INTO cuisines (name, spicy, price) VALUES (
+                    '{$this->getName()}',
+                    {$this->getSpicy()},
+                    {$this->getPrice()}
+                );"
+            );
+            $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
         //CRUD Read
-        function getAll()
+        static function getAll()
         {
+            $db_cuisines = $GLOBALS['DB']->query("SELECT * FROM cuisines;");
+            $all_cuisines = array();
+            foreach ($db_cuisines as $cuisine) {
+                $name = $cuisine['name'];
+                $spicy = $cuisine['spicy'];
+                $price = $cuisine['price'];
+                $id = $cuisine['id'];
 
+                $new_cuisine = new Cuisine($name, $spicy, $price, $id);
+                array_push($all_cuisines, $new_cuisine);
+            }
+            return $all_cuisines;
         }
 
         // function find($search_name)
@@ -61,7 +80,7 @@
         //
         // }
 
-        function getRestaurants()
+        static function getRestaurants()
         {
 
         }
@@ -78,9 +97,9 @@
 
         }
 
-        function deleteAll()
+        static function deleteAll()
         {
-
+            $GLOBALS['DB']->exec("DELETE FROM cuisines;");
         }
 
     }
