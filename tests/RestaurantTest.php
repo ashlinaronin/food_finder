@@ -1,0 +1,46 @@
+<?php
+
+    /**
+    * @backupGlobals disabled
+    * @backupStatic Attributes disabled
+    */
+
+    require_once "src/Restaurant.php";
+    //require_once "src/Cuisine.php";
+
+    $server = 'mysql:host=localhost;dbname=food_finder';
+    $username = 'root';
+    $password = 'root';
+    $DB = new PDO($server, $username, $password);
+
+    class RestaurantTest extends PHPUnit_Framework_TestCase
+    {
+        // protected function tearDown()
+        // {
+        //     Restaurant::deleteAll();
+        //     Cuisine::deleteAll();
+        // }
+
+        function test_getName()
+        {
+            //Arrange
+            $name = "Mario's Pizza";
+            $test_restaurant = new Restaurant($name);
+
+
+            //Act
+            $result = $test_restaurant->getName();
+
+
+            //Assert
+            $this->assertEquals ($name,$result);
+        }
+
+
+
+
+    }
+
+
+
+?>
