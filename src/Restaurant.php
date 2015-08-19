@@ -131,7 +131,11 @@
         {
             $GLOBALS['DB']->exec("DELETE FROM restaurants; ");
         }
-        //static function find($search_name)
+
+        static function find($search_name)
+        {
+            
+        }
 
     }
 ?>

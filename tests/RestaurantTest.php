@@ -183,6 +183,23 @@
 
         }
 
+        function test_find()
+        {
+            //Arrange
+            $test_name = "Toms Tomatos ";
+            $test_seats = 15;
+            $test_location = "Farmville";
+            $test_evenings = true;
+            $test_restaurant = new Restaurant($test_name, $test_seats, $test_location, $test_evenings);
+            $test_restaurant->save();
+
+            //Act
+            $result = Restaurant::find($test_restaurant->getName());
+
+            //Assert
+            $this->assertEquals($test_restaurant, $result);
+        }
+
 
 
 
