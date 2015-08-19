@@ -19,28 +19,28 @@
 
         function getName()
         {
-
+            return $this->name;
         }
 
         function getSpicy()
         {
-
+            return $this->spicy;
         }
 
         function getPrice()
         {
-
+            return $this->price;
         }
 
         //set
-        function setPrice()
+        function setPrice($new_price)
         {
-
+            $this->price = (int) $new_price;
         }
 
         function getId()
         {
-
+            return $this->id;
         }
 
         //Database storage methods
