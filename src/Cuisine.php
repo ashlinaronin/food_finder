@@ -15,8 +15,6 @@
         }
 
         //getters and setters
-
-
         function getName()
         {
             return $this->name;
@@ -47,7 +45,6 @@
         //CRUD Create
         function save()
         {
-
             $GLOBALS['DB']->exec(
                 "INSERT INTO cuisines (name, spicy, price) VALUES (
                     '{$this->getName()}',
@@ -75,14 +72,31 @@
             return $all_cuisines;
         }
 
-        // function find($search_name)
-        // {
-        //
-        // }
 
-        static function getRestaurants()
+        function getRestaurants()
         {
+            $matching_restaurants = array();
+            $db_restaurants = $GLOBALS['DB']->query(
+                "SELECT * FROM restaurants WHERE cuisine_id = {$this->getId()};"
+            );
+            var_dump($this->getId());
+            var_dump($db_restaurants);
 
+            foreach ($db_restaurants as $restaurant) {
+                var_dump($restaurant);
+                $name = $restaurant['name'];
+                var_dump($name);
+                $seats = $restaurant['seats'];
+                $location = $restaurant['location'];
+                $evenings = $restaurant['evenings'];
+                $cuisine_id = $restaurant['cuisine_id'];
+                $id = $restaurant['id'];
+                $new_restaurant = new Restaurant(
+                    $name, $seats, $location, $evenings, $cuisine_id, $id
+                );
+                array_push($matching_restaurants, $new_restaurant);
+            }
+            return $matching_restaurants;
         }
 
         //CRUD Update

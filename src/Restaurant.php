@@ -79,11 +79,12 @@
         function save()
         {
             $GLOBALS['DB']->exec(
-                "INSERT INTO restaurants (name, seats, location, evenings) VALUES (
+                "INSERT INTO restaurants (name, seats, location, evenings, cuisine_id) VALUES (
                     '{$this->getName()}',
                     {$this->getSeats()},
                     '{$this->getLocation()}',
-                    {$this->getEvenings()}
+                    {$this->getEvenings()},
+                    {$this->getCuisineId()}
                 );"
             );
             $this->id = $GLOBALS['DB']->lastInsertId();
@@ -114,10 +115,8 @@
                 $seats = $restaurant['seats'];
                 $location = $restaurant['location'];
                 $evenings = $restaurant['evenings'];
+                $cuisine_id = $restaurant['cuisine_id'];
                 $id = $restaurant['id'];
-
-                // We're not dealing with cuisines yet, so leave this null
-                $cuisine_id = null;
 
                 $new_restaurant = new Restaurant(
                     $name, $seats, $location, $evenings, $cuisine_id, $id
@@ -143,10 +142,8 @@
                 $seats = $restaurant['seats'];
                 $location = $restaurant['location'];
                 $evenings = $restaurant['evenings'];
+                $cuisine_id = $restaurant['cuisine_id'];
                 $id = $restaurant['id'];
-
-                // We're not dealing with cuisines yet, so leave this null
-                $cuisine_id = null;
 
                 $new_restaurant = new Restaurant(
                     $name, $seats, $location, $evenings, $cuisine_id, $id

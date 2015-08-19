@@ -6,7 +6,7 @@
     */
 
     require_once "src/Restaurant.php";
-    //require_once "src/Cuisine.php";
+    require_once "src/Cuisine.php";
 
     $server = 'mysql:host=localhost;dbname=food_finder_test';
     $username = 'root';
@@ -18,7 +18,7 @@
         protected function tearDown()
         {
             Restaurant::deleteAll();
-            //Cuisine::deleteAll();
+            Cuisine::deleteAll();
         }
 
         function test_getName()
@@ -180,7 +180,6 @@
             //Assert
             $this->assertEquals([$test_restaurant], Restaurant::getAll());
 
-
         }
 
         function test_find()
@@ -200,14 +199,6 @@
             $this->assertEquals($test_restaurant, $result);
         }
 
-
-
-
-
-
-
     }
-
-
 
 ?>
