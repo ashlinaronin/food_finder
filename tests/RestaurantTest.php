@@ -87,6 +87,30 @@
             $this->assertEquals($test_evenings, $result);
         }
 
+        function test_save()
+        {
+            //Arrange
+            $test_name = "Toms Tomatos ";
+            $test_seats = 15;
+            $test_location = "Farmville";
+            $test_evenings = false;
+            $test_restaurant = new Restaurant($test_name, $test_seats, $test_location, $test_evenings);
+            $test_restaurant->save();
+
+            //Act
+            $result = Restaurant::getAll();
+
+            //Assert
+            $this->assertEquals($test_restaurant, $result[0]);
+        }
+
+
+
+
+
+
+
+
 
 
 
