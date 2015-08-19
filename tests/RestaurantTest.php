@@ -39,6 +39,22 @@
         }
 
 
+        function test_getSeats()
+        {
+            //Arrange
+            $test_name = " bens bulkogis ";
+            $test_seats = 50;
+            $test_location = " eastside";
+            $test_evenings = false;
+            $test_restaurant = new Restaurant($test_name, $test_seats, $test_location, $test_evenings);
+
+            //Act
+            $result = $test_restaurant->getSeats();
+
+            //Assert
+            $this->assertEquals($test_seats, $result);        
+        }
+
 
 
     }
