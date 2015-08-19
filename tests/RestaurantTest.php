@@ -154,6 +154,35 @@
         }
 
 
+        function test_delete()
+        {
+            //Arrange
+            //r 1
+            $test_name = "Toms Tomatos ";
+            $test_seats = 15;
+            $test_location = "Farmville";
+            $test_evenings = true;
+            $test_restaurant = new Restaurant($test_name, $test_seats, $test_location, $test_evenings);
+            $test_restaurant->save();
+
+            //r 2
+            $test_name2 = "bobs Tomatos ";
+            $test_seats2 = 13335;
+            $test_location2 = "feild";
+            $test_evenings2 = true;
+            $test_restaurant2 = new Restaurant($test_name2, $test_seats2, $test_location2, $test_evenings2);
+            $test_restaurant2->save();
+
+
+            //Act
+            $test_restaurant2->delete();
+
+            //Assert
+            $this->assertEquals([$test_restaurant], Restaurant::getAll());
+
+
+        }
+
 
 
 
