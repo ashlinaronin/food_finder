@@ -133,9 +133,25 @@
         }
 
 
+        function test_updateName()
+        {
+            //Arrange
+            $test_name = "Toms Tomatos ";
+            $test_seats = 15;
+            $test_location = "Farmville";
+            $test_evenings = true;
+            $test_restaurant = new Restaurant($test_name, $test_seats, $test_location, $test_evenings);
+            $test_restaurant->save();
 
+            //Act
+            $new_name = "Annie Applesauce";
+            $test_restaurant->updateName($new_name);
+            $result = Restaurant::getAll();
 
-
+            //Assert
+            $this->assertEquals($new_name, $result[0]->getName());
+            //if $new_name == $result[0] return true;
+        }
 
 
 

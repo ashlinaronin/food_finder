@@ -75,6 +75,7 @@
 
 
         // Database storage methods
+        //CRUD Create
         function save()
         {
             $GLOBALS['DB']->exec(
@@ -88,9 +89,19 @@
             $this->id = $GLOBALS['DB']->lastInsertId();
 
         }
-        //function update()
+        // CRUD Update
+        function updateName($new_name)
+        {
+            $GLOBALS ['DB']->exec("UPDATE restaurants SET name  = '{$new_name}' WHERE id = {$this->getId()};");
+            $this->setName($new_name);
+        }
+
+
+        // CRUD Delete
         //function delete()
 
+
+        // CRUD Read
         static function getAll()
         {
             $db_restaurants = $GLOBALS['DB']->query("SELECT * FROM restaurants;");
