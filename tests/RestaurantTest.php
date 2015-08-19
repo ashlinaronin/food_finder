@@ -52,7 +52,23 @@
             $result = $test_restaurant->getSeats();
 
             //Assert
-            $this->assertEquals($test_seats, $result);        
+            $this->assertEquals($test_seats, $result);
+        }
+
+        function test_getLocation()
+        {
+            //Arrange
+            $test_name = "Ashlin's Asparagus Apothecary";
+            $test_seats = 3;
+            $test_location = "underground";
+            $test_evenings = true;
+            $test_restaurant = new Restaurant($test_name, $test_seats, $test_location, $test_evenings);
+
+            //Act
+            $result = $test_restaurant->getLocation();
+
+            //Assert
+            $this->assertEquals($test_location, $result);
         }
 
 
