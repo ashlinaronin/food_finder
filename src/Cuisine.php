@@ -63,7 +63,7 @@
 
         function getRestaurants()
         {
-            
+
         }
 
         //CRUD Update
@@ -83,7 +83,7 @@
 
         }
 
-
+    }
 
 
  ?>
