@@ -10,14 +10,16 @@
 
         function __construct ($new_name, $new_seats, $new_location, $new_evenings, $new_cuisine_id = null, $new_id = null)
         {
-            $this->name = $new_name;
-            $this->seats = $new_seats;
-            $this->location = $new_location;
-            $this->evenings = (bool) $new_evenings;
-            $this->cuisine_id = $new_cuisine_id;
-            $this->id = $new_id;
-        }
+            $this->name = (string) $new_name;
+            $this->seats = (int) $new_seats;
+            $this->location = (string) $new_location;
 
+            //Cast evenings as int bc PHP is so dumb it can't get booleans
+            //out of MySQL otherwise
+            $this->evenings = (int) $new_evenings;
+            $this->cuisine_id = (int) $new_cuisine_id;
+            $this->id = (int) $new_id;
+        }
 
 
         // Getters and Setters
@@ -33,7 +35,7 @@
 
         function setName($new_name)
         {
-            $this->name = $new_name;
+            $this->name = (string) $new_name;
         }
 
         function getSeats()
@@ -43,7 +45,7 @@
 
         function setSeats($new_seats)
         {
-            $this->seats = $new_seats;
+            $this->seats = (int) $new_seats;
         }
 
         function getLocation()
@@ -53,7 +55,7 @@
 
         function setLocation($new_location)
         {
-            $this->location = $new_location;
+            $this->location = (string)$new_location;
         }
 
         function getEvenings()
@@ -63,7 +65,7 @@
 
         function setEvenings($new_evenings)
         {
-            $this->evenings = $new_evenings;
+            $this->evenings = (int)$new_evenings;
         }
 
         function getCuisineId()

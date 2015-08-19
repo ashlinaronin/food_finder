@@ -61,7 +61,7 @@
             $test_name = "Ashlin's Asparagus Apothecary";
             $test_seats = 3;
             $test_location = "underground";
-            $test_evenings = true;
+            $test_evenings = false;
             $test_restaurant = new Restaurant($test_name, $test_seats, $test_location, $test_evenings);
 
             //Act
@@ -77,7 +77,7 @@
             $test_name = "Ellen's Excellent Egg Sanctuary";
             $test_seats = 15;
             $test_location = "Farmville";
-            $test_evenings = true;
+            $test_evenings = false;
             $test_restaurant = new Restaurant($test_name, $test_seats, $test_location, $test_evenings);
 
             //Act
@@ -93,7 +93,7 @@
             $test_name = "Toms Tomatos ";
             $test_seats = 15;
             $test_location = "Farmville";
-            $test_evenings = true;
+            $test_evenings = false;
             $test_restaurant = new Restaurant($test_name, $test_seats, $test_location, $test_evenings);
             $test_restaurant->save();
 
