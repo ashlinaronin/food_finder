@@ -71,6 +71,24 @@
             $this->assertEquals($test_location, $result);
         }
 
+        function test_getEvenings()
+        {
+            //Arrange
+            $test_name = "Ellen's Excellent Egg Sanctuary";
+            $test_seats = 15;
+            $test_location = "Farmville";
+            $test_evenings = false;
+            $test_restaurant = new Restaurant($test_name, $test_seats, $test_location, $test_evenings);
+
+            //Act
+            $result = $test_restaurant->getEvenings();
+
+            //Assert
+            $this->assertEquals($test_evenings, $result);
+        }
+
+
+
 
 
     }
