@@ -24,7 +24,7 @@
             //Arrange
             $test_name = "Albanian";
             $test_spicy = false;
-            $test_price = 3.00;
+            $test_price = 3;
             $test_cuisine = new Cuisine( $test_name, $test_spicy, $test_price);
 
             //Act
@@ -32,6 +32,23 @@
 
             //Assert
             $this->assertEquals($test_name, $result);
+
+
+        }
+
+        function test_getSpicy()
+        {
+            //Arrange
+            $test_name = "German";
+            $test_spicy = false;
+            $test_price = 5;
+            $test_cuisine = new Cuisine( $test_name, $test_spicy, $test_price);
+
+            //Act
+            $result = $test_cuisine->getSpicy();
+
+            //Assert
+            $this->assertEquals($test_spicy, $result);
 
 
         }
