@@ -134,7 +134,28 @@
 
         static function find($search_name)
         {
-            
+            $db_restaurants = $GLOBALS['DB']->query(
+                "SELECT * FROM restaurants WHERE name = '{$search_name}';"
+            );
+            $found_restaurants = array();
+            foreach ($db_restaurants as $restaurant) {
+                $name = $restaurant['name'];
+                $seats = $restaurant['seats'];
+                $location = $restaurant['location'];
+                $evenings = $restaurant['evenings'];
+                $id = $restaurant['id'];
+
+                // We're not dealing with cuisines yet, so leave this null
+                $cuisine_id = null;
+
+                $new_restaurant = new Restaurant(
+                    $name, $seats, $location, $evenings, $cuisine_id, $id
+                );
+                array_push($found_restaurants, $new_restaurant);
+            }
+
+            // We may have multiple results-- just return the first one for now.
+            return $found_restaurants[0];
         }
 
     }
