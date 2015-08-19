@@ -8,18 +8,18 @@
     require_once "src/Restaurant.php";
     //require_once "src/Cuisine.php";
 
-    $server = 'mysql:host=localhost;dbname=food_finder';
+    $server = 'mysql:host=localhost;dbname=food_finder_test';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
 
     class RestaurantTest extends PHPUnit_Framework_TestCase
     {
-        // protected function tearDown()
-        // {
-        //     Restaurant::deleteAll();
-        //     Cuisine::deleteAll();
-        // }
+        protected function tearDown()
+        {
+            Restaurant::deleteAll();
+            //Cuisine::deleteAll();
+        }
 
         function test_getName()
         {
@@ -45,7 +45,7 @@
             $test_name = " bens bulkogis ";
             $test_seats = 50;
             $test_location = " eastside";
-            $test_evenings = false;
+            $test_evenings = true;
             $test_restaurant = new Restaurant($test_name, $test_seats, $test_location, $test_evenings);
 
             //Act
@@ -77,7 +77,7 @@
             $test_name = "Ellen's Excellent Egg Sanctuary";
             $test_seats = 15;
             $test_location = "Farmville";
-            $test_evenings = false;
+            $test_evenings = true;
             $test_restaurant = new Restaurant($test_name, $test_seats, $test_location, $test_evenings);
 
             //Act
@@ -93,7 +93,7 @@
             $test_name = "Toms Tomatos ";
             $test_seats = 15;
             $test_location = "Farmville";
-            $test_evenings = false;
+            $test_evenings = true;
             $test_restaurant = new Restaurant($test_name, $test_seats, $test_location, $test_evenings);
             $test_restaurant->save();
 
@@ -112,7 +112,7 @@
             $test_name = "Toms Tomatos ";
             $test_seats = 15;
             $test_location = "Farmville";
-            $test_evenings = false;
+            $test_evenings = true;
             $test_restaurant = new Restaurant($test_name, $test_seats, $test_location, $test_evenings);
             $test_restaurant->save();
 
