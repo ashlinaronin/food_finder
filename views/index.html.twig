@@ -29,10 +29,19 @@
                 <!-- end spicy radio button section -->
                 <hr>
                 <div class="form-group" id="price-slider">
-                    <label for="price">Cuisine price :</label>
-                    0$
-
-                    <input id="price" name="price" type="range" min="0" max="5" step="1"> $5
+                    <label for="price">Cuisine price</label>
+                    <input id="price" name="price" type="range" min="1" max="5" step="1" oninput="outputUpdate(value)">
+                    <!-- <output for="fader" id="currentPrice">$5</output> -->
+                    <div id="dollars"></div>
+                    <script>
+                        function outputUpdate(price) {
+                            var gifHtml = "";
+                            for (i = 0; i < price; i++) {
+                                gifHtml += '<img src="/img/dollar.gif" width="48" height="48" alt="dolla dolla bill yall"/>'
+                            }
+                            document.getElementById("dollars").innerHTML = gifHtml;
+                        }
+                    </script>
                     <hr>
                 </div>
 
