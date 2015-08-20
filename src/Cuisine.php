@@ -97,14 +97,17 @@
         }
 
         //CRUD Update
-        function update($new_price)
+        function updatePrice($new_price)
         {
+
 
         }
 
         //CRUD Delete
         function delete()
         {
+
+
 
         }
 

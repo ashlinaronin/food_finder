@@ -151,5 +151,20 @@
             //$this->assertEquals([], $result);
         }
 
+        function test_update()
+
+        {
+            //Arrange
+            $test_cuisine = new Cuisine ("american", false, 4);
+
+            //Act
+            $new_price = 5;
+            $test_cuisine->updatePrice($new_price);
+            $result = Cuisine::getAll();
+
+            //Assert
+            $this->assertEquals($new_price, $result[0]->getPrice());
+        }
+
     }
  ?>
