@@ -28,7 +28,14 @@
             $test_seats = 100;
             $test_location = "Downtown";
             $test_evenings = true;
-            $test_restaurant = new Restaurant($test_name, $test_seats, $test_location, $test_evenings);
+
+            $test_cuisine = new Cuisine("Mexican", true, 1);
+            $test_cuisine->save();
+
+            $test_restaurant = new Restaurant(
+              $test_name, $test_seats, $test_location, $test_evenings, $test_cuisine->getId()
+            );
+            $test_restaurant->save();
 
             //Act
             $result = $test_restaurant->getName();
@@ -46,7 +53,14 @@
             $test_seats = 50;
             $test_location = " eastside";
             $test_evenings = true;
-            $test_restaurant = new Restaurant($test_name, $test_seats, $test_location, $test_evenings);
+
+            $test_cuisine = new Cuisine("Mexican", true, 1);
+            $test_cuisine->save();
+
+            $test_restaurant = new Restaurant(
+              $test_name, $test_seats, $test_location, $test_evenings, $test_cuisine->getId()
+            );
+            $test_restaurant->save();
 
             //Act
             $result = $test_restaurant->getSeats();
@@ -62,7 +76,13 @@
             $test_seats = 3;
             $test_location = "underground";
             $test_evenings = false;
-            $test_restaurant = new Restaurant($test_name, $test_seats, $test_location, $test_evenings);
+            $test_cuisine = new Cuisine("Mexican", true, 1);
+            $test_cuisine->save();
+
+            $test_restaurant = new Restaurant(
+              $test_name, $test_seats, $test_location, $test_evenings, $test_cuisine->getId()
+            );
+            $test_restaurant->save();
 
             //Act
             $result = $test_restaurant->getLocation();
@@ -78,7 +98,13 @@
             $test_seats = 15;
             $test_location = "Farmville";
             $test_evenings = false;
-            $test_restaurant = new Restaurant($test_name, $test_seats, $test_location, $test_evenings);
+            $test_cuisine = new Cuisine("Mexican", true, 1);
+            $test_cuisine->save();
+
+            $test_restaurant = new Restaurant(
+              $test_name, $test_seats, $test_location, $test_evenings, $test_cuisine->getId()
+            );
+            $test_restaurant->save();
 
             //Act
             $result = $test_restaurant->getEvenings();
@@ -94,7 +120,12 @@
             $test_seats = 15;
             $test_location = "Farmville";
             $test_evenings = false;
-            $test_restaurant = new Restaurant($test_name, $test_seats, $test_location, $test_evenings);
+            $test_cuisine = new Cuisine("Mexican", true, 1);
+            $test_cuisine->save();
+
+            $test_restaurant = new Restaurant(
+              $test_name, $test_seats, $test_location, $test_evenings, $test_cuisine->getId()
+            );
             $test_restaurant->save();
 
             //Act
@@ -113,7 +144,12 @@
             $test_seats = 15;
             $test_location = "Farmville";
             $test_evenings = true;
-            $test_restaurant = new Restaurant($test_name, $test_seats, $test_location, $test_evenings);
+            $test_cuisine = new Cuisine("Mexican", true, 1);
+            $test_cuisine->save();
+
+            $test_restaurant = new Restaurant(
+              $test_name, $test_seats, $test_location, $test_evenings, $test_cuisine->getId()
+            );
             $test_restaurant->save();
 
             //r 2
@@ -121,7 +157,12 @@
             $test_seats2 = 13335;
             $test_location2 = "feild";
             $test_evenings2 = true;
-            $test_restaurant2 = new Restaurant($test_name2, $test_seats2, $test_location2, $test_evenings2);
+            $test_cuisine2 = new Cuisine("Appalachian", false, 1);
+            $test_cuisine2->save();
+
+            $test_restaurant2 = new Restaurant(
+              $test_name2, $test_seats2, $test_location2, $test_evenings2, $test_cuisine2->getId()
+            );
             $test_restaurant2->save();
 
 
@@ -140,7 +181,12 @@
             $test_seats = 15;
             $test_location = "Farmville";
             $test_evenings = true;
-            $test_restaurant = new Restaurant($test_name, $test_seats, $test_location, $test_evenings);
+            $test_cuisine = new Cuisine("Mexican", true, 1);
+            $test_cuisine->save();
+
+            $test_restaurant = new Restaurant(
+              $test_name, $test_seats, $test_location, $test_evenings, $test_cuisine->getId()
+            );
             $test_restaurant->save();
 
             //Act
@@ -162,7 +208,12 @@
             $test_seats = 15;
             $test_location = "Farmville";
             $test_evenings = true;
-            $test_restaurant = new Restaurant($test_name, $test_seats, $test_location, $test_evenings);
+            $test_cuisine = new Cuisine("Mexican", true, 1);
+            $test_cuisine->save();
+
+            $test_restaurant = new Restaurant(
+              $test_name, $test_seats, $test_location, $test_evenings, $test_cuisine->getId()
+            );
             $test_restaurant->save();
 
             //r 2
@@ -170,7 +221,12 @@
             $test_seats2 = 13335;
             $test_location2 = "feild";
             $test_evenings2 = true;
-            $test_restaurant2 = new Restaurant($test_name2, $test_seats2, $test_location2, $test_evenings2);
+            $test_cuisine2 = new Cuisine("Appalachian", false, 1);
+            $test_cuisine2->save();
+
+            $test_restaurant2 = new Restaurant(
+              $test_name2, $test_seats2, $test_location2, $test_evenings2, $test_cuisine2->getId()
+            );
             $test_restaurant2->save();
 
 
@@ -189,7 +245,12 @@
             $test_seats = 15;
             $test_location = "Farmville";
             $test_evenings = true;
-            $test_restaurant = new Restaurant($test_name, $test_seats, $test_location, $test_evenings);
+            $test_cuisine = new Cuisine("Mexican", true, 1);
+            $test_cuisine->save();
+
+            $test_restaurant = new Restaurant(
+              $test_name, $test_seats, $test_location, $test_evenings, $test_cuisine->getId()
+            );
             $test_restaurant->save();
 
             //Act

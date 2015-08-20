@@ -8,7 +8,7 @@
         private $cuisine_id;
         private $id;
 
-        function __construct ($new_name, $new_seats, $new_location, $new_evenings, $new_cuisine_id = null, $new_id = null)
+        function __construct ($new_name, $new_seats, $new_location, $new_evenings, $new_cuisine_id, $new_id = null)
         {
             $this->name = (string) $new_name;
             $this->seats = (int) $new_seats;
@@ -17,8 +17,8 @@
             //Cast evenings as int bc PHP is so dumb it can't get booleans
             //out of MySQL otherwise
             $this->evenings = (int) $new_evenings;
-            $this->cuisine_id = (int) $new_cuisine_id;
-            $this->id = (int) $new_id;
+            $this->cuisine_id = $new_cuisine_id;
+            $this->id = $new_id;
         }
 
 
