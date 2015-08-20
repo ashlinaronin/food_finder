@@ -6,13 +6,13 @@
     </head>
     <body>
         <div class="container">
-            <h1>Welcome to the food finder</h1>
+            <h1>Bienvenidos to the food finder!</h1>
 
-            <p>Create a new Cuisine :</p>
+            <p>Create a new Cuisine:</p>
 
             <form action="/cuisines" method="post">
                 <div class="form-group">
-                    <label for="name">Cuisine name:</label>
+                    <label for="name">Name:</label>
                     <input id="name" name="name" type="text" required>
 
                 </div>
@@ -30,9 +30,19 @@
                 <hr>
                 <div class="form-group" id="price-slider">
                     <label for="price">Cuisine price :</label>
-                    0$ <input id="price" name="price" type="range" min="0" max="5" step="1"> $5
+                    0$
+
+                    <input id="price" name="price" type="range" min="0" max="5" step="1"> $5
                     <hr>
                 </div>
+
+
+
+
+
+
+
+
 
                 <button type="submit" class="btn btn-success">Add Cuisine</button>
             </form>

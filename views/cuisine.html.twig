@@ -6,12 +6,14 @@
     <body>
         <div class="container">
             <h1>{{ cuisine.getName}}</h1>
-            <p>This cuisine is {{ cuisine.getPrice }} price units on the 1-5 standard scale of prices.</p>
+                {% for dollar in 1..cuisine.getPrice %}
+                    <img src="/img/dollar.gif" width="48" height="48" alt="dolla dolla bill yall"/>
+                {% endfor %}
 
             {% if cuisine.getSpicy %}
-                <p>This cuisine is spicy. Watch out! Make sure to stay hydrated!</p>
+                <p><img src="/img/chili.gif" height="48" width="48">! Watch out! Make sure to stay hydrated!</p>
             {% else %}
-                <p>This cuisine is no picante. No problemo!</p>
+                <p><strong>NOT</strong> <img src="/img/chili.gif" height="48" width="48">. No problemo!</p>
             {% endif %}
 
             {% if restaurants is not empty %}
@@ -42,7 +44,7 @@
 
             <p><a href="/">Home</a></p>
 
-            <h4>Add a restaurant</h4>
+            <h3>Add a restaurant</h3>
 
             <form action='/restaurants' method='post'>
                 <div class="form-group">
