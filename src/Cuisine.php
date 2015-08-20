@@ -36,6 +36,7 @@
             $this->price = (int) $new_price;
         }
 
+        //referes to the restaurant Id NOT the cuisine Id
         function getId()
         {
             return $this->id;
@@ -97,6 +98,7 @@
         }
 
         //CRUD Update
+        // used if owners wanted to change the price of food in the future
         function updatePrice($new_price)
         {
 
@@ -107,13 +109,26 @@
         //CRUD Delete
         function delete()
         {
-
+          $GLOBALS ['DB']->exec ("DELETE FROM cuisines WHERE id = {$this->getId()};");
 
         }
 
         static function deleteAll()
         {
             $GLOBALS['DB']->exec("DELETE FROM cuisines;");
+        }
+
+        //CRUD Read
+        static function find($search_id)
+        {
+            $found_cuisine = null;
+            $cuisines = Cuisine::getAll();
+            foreach($cuisines as $cuisine) {
+                if ($cuisine->getId() == $search_id) {
+                    $found_cuisine = $cuisine;
+                }
+            }
+            return $found_cuisine;
         }
 
     }

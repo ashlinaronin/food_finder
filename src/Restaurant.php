@@ -17,6 +17,7 @@
             //Cast evenings as int bc PHP is so dumb it can't get booleans
             //out of MySQL otherwise
             $this->evenings = (int) $new_evenings;
+            //Id' s
             $this->cuisine_id = $new_cuisine_id;
             $this->id = $new_id;
         }
@@ -91,6 +92,7 @@
 
         }
         // CRUD Update
+        // used if owners wanted to change restaurant name in the future?
         function updateName($new_name)
         {
             $GLOBALS ['DB']->exec("UPDATE restaurants SET name  = '{$new_name}' WHERE id = {$this->getId()};");

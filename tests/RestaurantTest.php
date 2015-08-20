@@ -221,7 +221,7 @@
             $test_seats2 = 13335;
             $test_location2 = "feild";
             $test_evenings2 = true;
-            $test_cuisine2 = new Cuisine("Appalachian", false, 1);
+            $test_cuisine2 = new Cuisine("Appalachian\'s", false, 1);
             $test_cuisine2->save();
 
             $test_restaurant2 = new Restaurant(
