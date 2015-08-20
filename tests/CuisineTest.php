@@ -151,11 +151,12 @@
             //$this->assertEquals([], $result);
         }
 
-        function test_update()
+        function test_updatePrice()
 
         {
             //Arrange
             $test_cuisine = new Cuisine ("american", false, 4);
+            $test_cuisine->save();
 
             //Act
             $new_price = 5;

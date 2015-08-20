@@ -100,13 +100,13 @@
         function updatePrice($new_price)
         {
 
-
+          $GLOBALS ['DB']->exec("UPDATE cuisines SET price = '{$new_price}' WHERE id = {$this->getId()};");
+          $this->setPrice($new_price);
         }
 
         //CRUD Delete
         function delete()
         {
-
 
 
         }
