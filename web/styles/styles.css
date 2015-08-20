@@ -1,0 +1,19 @@
+#price-slider {
+    width: 30%;
+
+}
+
+
+body
+{
+    color:white;
+    background-image: url("../img/background.jpeg");
+    background-size: 100% 100%;
+    /*text-shadow: 4px 2px 2px #ffffff;*/
+    text-shadow: -1px -1px 0px rgba(255,255,255,0.3), 1px 1px 0px rgba(0,0,0,0.8);
+}
+
+input
+{
+    color: black;
+}

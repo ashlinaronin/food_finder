@@ -2,10 +2,15 @@
     <head>
         <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
         <link rel='stylesheet' href='/styles/styles.css' />
+        <script src="/scripts/dollarslider.js"></script>
         <title>Food Finder </title>
     </head>
     <body>
+
         <div class="container">
+            <!-- <div class="row">
+
+                <div class= "col-md-6"> -->
             <h1>Bienvenidos to the food finder!</h1>
 
             <p>Create a new Cuisine:</p>
@@ -30,28 +35,12 @@
                 <hr>
                 <div class="form-group" id="price-slider">
                     <label for="price">Cuisine price</label>
+
                     <input id="price" name="price" type="range" min="1" max="5" step="1" oninput="outputUpdate(value)">
-                    <!-- <output for="fader" id="currentPrice">$5</output> -->
                     <div id="dollars"></div>
-                    <script>
-                        function outputUpdate(price) {
-                            var gifHtml = "";
-                            for (i = 0; i < price; i++) {
-                                gifHtml += '<img src="/img/dollar.gif" width="48" height="48" alt="dolla dolla bill yall"/>'
-                            }
-                            document.getElementById("dollars").innerHTML = gifHtml;
-                        }
-                    </script>
+
                     <hr>
                 </div>
-
-
-
-
-
-
-
-
 
                 <button type="submit" class="btn btn-success">Add Cuisine</button>
             </form>
@@ -72,6 +61,8 @@
                 <button type="submit">Delete everything I'm sick of this food finder</button>
             </form>
         </div>
+    <!-- </div>
+</div> -->
 
     </body>
 </html>
