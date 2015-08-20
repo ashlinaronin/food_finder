@@ -1,6 +1,7 @@
 <html>
     <head>
         <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+        <link rel='stylesheet' href='/styles/styles.css' />
         <title>Food Finder </title>
     </head>
     <body>
@@ -11,19 +12,26 @@
 
             <form action="/cuisines" method="post">
                 <div class="form-group">
-
                     <label for="name">Cuisine name:</label>
                     <input id="name" name="name" type="text">
-                </div>
 
-                <div class="form-group">
-                    <label for="spicy">Cuisine is spicy?:</label>
-                    <input id="spicy" name="spicy" type="text">
                 </div>
-
+                <hr>
+                        <!-- spicy radio button -->
                 <div class="form-group">
+                    <label for='spicy'>Is it spicy?</label>
+                        <br>
+                    <input type="radio" name="spicy" value="1">
+                        I am a spicy food!! enjoy me!! <br>
+                    <input type="radio" name="spicy" value="0">
+                        Im not a spicy! sorry!! <br>
+                </div>
+                <!-- end spicy radio button section -->
+                <hr>
+                <div class="form-group" id="price-slider">
                     <label for="price">Cuisine price :</label>
-                    <input id="price" name="price" type="number">
+                    No picante <input id="price" name="price" type="range" min="0" max="5" step="1"> Molto picante
+                    <hr>
                 </div>
 
                 <button type="submit" class="btn btn-success">Add Cuisine</button>

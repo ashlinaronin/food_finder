@@ -48,33 +48,32 @@
                 <div class="form-group">
                     <input id='cuisine_id' name='cuisine_id' type='hidden' value='{{ cuisine.getId }}'>
                     <label for='name'>Restaurant Name</label>
-                    <input id='name' name='name' type='text'>
+                    <input id='name' name='name' type='text' required>
                 </div>
 
                 <div class="form-group">
                     <label for='seats'>Seats:</label>
-                    <input id='seats' name='seats' type='number'>
+                    <input id='seats' name='seats' type='number' min="0" required>
                 </div>
 
                 <div class="form-group">
                     <label for='location'>Location:</label>
-                    <input id='location' name='location' type='text'>
+                    <input id='location' name='location' type='text' required>
                 </div>
 
                 <div class="form-group">
-                    <label for='evenings'>Evenings:</label>
-                    <input id='evenings' name='evenings' type='text'>
+                    <label for='evenings'>Open Evenings?</label>
+                    <br />
+                    <input type="radio" name="evenings" value="1" required>
+                        We are totes Open in the evenings generally bro!! Come on in!!<br>
+                    <input type="radio" name="evenings" value="0" required>
+                        We are Closed all the evenings tho!! Lo Siento!!! <br>
                 </div>
+
+
 
                 <button type='submit' class="btn btn-success">Add restaurant</button>
             </form>
-
-
-            <!-- <form action='/delete_tasks' method='post'>
-                <div class="form-group">
-                    <button type='submit' class='btn btn-danger'>Delete Tasks</button>
-                </div>
-            </form> -->
 
             <p><a href='/'>Home</a></p>
         </div>
