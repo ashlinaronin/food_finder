@@ -43,7 +43,7 @@
         $cuisine = Cuisine::find($id);
         return $app['twig']->render('cuisine.html.twig', array(
             'cuisine' => $cuisine,
-            'matching_restaurants' => $cuisine->getRestaurants()
+            'restaurants' => $cuisine->getRestaurants()
         ));
     });
 

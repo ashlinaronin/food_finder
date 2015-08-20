@@ -15,7 +15,12 @@
                             <ul>
                                 <li>Seats: {{ restaurant.getSeats }}</li>
                                 <li>Location: {{ restaurant.getLocation }}</li>
-                                <li>Open Evenings?? {{ restaurant.getEvenings }}</li>
+
+                                {% if restaurant.getEvenings == false %}
+                                    <li>Don't bother dining here at night</li>
+                                {% else %}
+                                    <li>You're welcome to eat here after 5</li>
+                                {% endif %}
                             </ul>
                         </li>
                     {% endfor %}
