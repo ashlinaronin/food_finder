@@ -152,7 +152,6 @@
         }
 
         function test_updatePrice()
-
         {
             //Arrange
             $test_cuisine = new Cuisine ("american", false, 4);
@@ -166,6 +165,22 @@
             //Assert
             $this->assertEquals($new_price, $result[0]->getPrice());
         }
+
+        function test_delete()
+        {
+            //Arrange
+            $test_cuisine = new Cuisine("american", false, 4);
+            $test_cuisine->save();
+
+            //Act
+            $test_cuisine->delete();
+            $result = Cuisine::getAll();
+
+            //Assert
+            $this->assertEquals([], $result);
+        }
+
+
 
     }
  ?>

@@ -47,9 +47,31 @@
         ));
     });
 
-    //[U]pdate a particular cuisine /cuisines/{id}/edit
+    //[U]pdate a particular cuisine /cuisines/{id}
+    $app->patch("/cuisines/{id}", function($id) use ($app) {
+        $cuisine = Cuisine::find($id);
+        $cuisine->updatePrice($_POST['price']);
+        return $app ['twig']->render('cuisine.html.twig', array(
+            'cuisine'=> $cuisine,
+            'restaurants' => $cuisine->getRestaurants()
+        ));
+
+    });
+
+
+    // form for editing a cuisine
+    $app->get("/cuisines/{id}/edit", function($id) use ($app) {
+        $cuisine = Cuisine::find($id);
+        return $app['twig']->render('cuisine_edit.html.twig', array('cuisine' => $cuisine));
+
+    });
 
     //[D]elete a particular cuisine /cuisines/{id}
+    $app->delete("/cuisines/{id}", function($id) use ($app) {
+        $cuisine = Cuisine::find($id);
+        $cuisine->delete();
+        return $app['twig']->render('index.html.twig', array('cuisines' => Cuisine::getAll()));
+    });
 
     //[C]reate a particular restaurant associated with a cuisine
     // Also display other restaurants associated with this cuisine
