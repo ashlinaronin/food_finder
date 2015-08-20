@@ -60,6 +60,7 @@
         {
             $db_cuisines = $GLOBALS['DB']->query("SELECT * FROM cuisines;");
             $all_cuisines = array();
+            //var_dump($all_cuisines);
             foreach ($db_cuisines as $cuisine) {
                 $name = $cuisine['name'];
                 $spicy = $cuisine['spicy'];
@@ -79,13 +80,9 @@
             $db_restaurants = $GLOBALS['DB']->query(
                 "SELECT * FROM restaurants WHERE cuisine_id = {$this->getId()};"
             );
-            //var_dump($this->getId());
-            //var_dump($db_restaurants);
 
             foreach ($db_restaurants as $restaurant) {
-                //var_dump($restaurant);
                 $name = $restaurant['name'];
-                //var_dump($name);
                 $seats = $restaurant['seats'];
                 $location = $restaurant['location'];
                 $evenings = $restaurant['evenings'];
