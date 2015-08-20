@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+        <title>Food Finder </title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Welcome to the food finder</h1>
+
+            <p>Create a new Cuisine :</p>
+
+            <form action="/cuisines" method="post">
+                <div class="form-group">
+
+                    <label for="name">Cuisine name:</label>
+                    <input id="name" name="name" type="text">
+                </div>
+
+                <div class="form-group">
+                    <label for="spicy">Cuisine is spicy?:</label>
+                    <input id="spicy" name="spicy" type="text">
+                </div>
+
+                <div class="form-group">
+                    <label for="price">Cuisine price :</label>
+                    <input id="price" name="price" type="number">
+                </div>
+
+                <button type="submit" class="btn btn-success">Add Cuisine</button>
+            </form>
+            <!-- <form action='/delete_cuisine' method='post'>
+                <div class="form-group">
+                    <button type='submit' class='btn btn-danger'>Delete Cuisine </button>
+                </div>
+            </form> -->
+
+            {% if cuisines is not empty %}
+                    <p>Here are all your cuisines:</p>
+                    <ul>
+                        {% for cuisine in cuisines %}
+                            <li><a href="/cuisines/{{ cuisine.getId }}">{{ cuisine.getName }}</a></li>
+                        {% endfor %}
+                    </ul>
+            {% else %}
+                <p>There are no cuisines yet!</p>
+            {% endif %}
+        </div>
+
+    </body>
+</html>

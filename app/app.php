@@ -1,10 +1,15 @@
 <?php
-
-
     //set up
     require_once __DIR__."/../vendor/autoload.php";
     require_once __DIR__."/../src/Cuisine.php";
     require_once __DIR__."/../src/Restaurant.php";
+
+    $server = 'mysql:host=localhost;dbname=food_finder';
+    $username = 'root';
+    $password = 'root';
+    $DB = new PDO($server, $username, $password);
+
+
 
     $app = new Silex\Application();
 
@@ -60,7 +65,7 @@
         $cuisine = Cuisine::find($_POST['cuisine_id']);
         return $app['twig']->render('cuisine.html.twig', array(
             'cuisine' => $cuisine,
-            'restaurants' => $restaurants
+            'restaurants' => $cuisine->getRestaurants()
         ));
     });
 
@@ -84,5 +89,5 @@
     //CRUD Delete
 
 
-    $app->
+
 ?>
