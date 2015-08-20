@@ -39,6 +39,11 @@
             {% else %}
                 <p>There are no cuisines yet!</p>
             {% endif %}
+
+            <form action="/" method="post">
+                <input name="_method" type="hidden" value="delete">
+                <button type="submit">Delete everything I'm sick of this food finder</button>
+            </form>
         </div>
 
     </body>

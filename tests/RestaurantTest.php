@@ -254,7 +254,7 @@
             $test_restaurant->save();
 
             //Act
-            $result = Restaurant::find($test_restaurant->getName());
+            $result = Restaurant::find($test_restaurant->getId());
 
             //Assert
             $this->assertEquals($test_restaurant, $result);

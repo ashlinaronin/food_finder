@@ -133,10 +133,10 @@
             $GLOBALS['DB']->exec("DELETE FROM restaurants; ");
         }
 
-        static function find($search_name)
+        static function find($search_id)
         {
             $db_restaurants = $GLOBALS['DB']->query(
-                "SELECT * FROM restaurants WHERE name = '{$search_name}';"
+                "SELECT * FROM restaurants WHERE id = {$search_id};"
             );
             $found_restaurants = array();
             foreach ($db_restaurants as $restaurant) {

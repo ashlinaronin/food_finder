@@ -6,13 +6,21 @@
     <body>
         <div class="container">
             <h1>{{ cuisine.getName}}</h1>
+            <p>This cuisine is {{ cuisine.getPrice }} price units on the 1-5 standard scale of prices.</p>
+
+            {% if cuisine.getSpicy %}
+                <p>This cuisine is spicy. Watch out! Make sure to stay hydrated!</p>
+            {% else %}
+                <p>This cuisine is no picante. No problemo!</p>
+            {% endif %}
 
             {% if restaurants is not empty %}
                 <p>Here are the restaurants:</p>
                 <ul>
                     {% for restaurant in restaurants %}
                         <li><h4>{{ restaurant.getName}}</h4>
-                             
+                            <ul>
+
                                 <li>Seats: {{ restaurant.getSeats }}</li>
                                 <li>Location: {{ restaurant.getLocation }}</li>
 
@@ -21,6 +29,9 @@
                                 {% else %}
                                     <li>You're welcome to eat here after 5</li>
                                 {% endif %}
+                                <li><!-- button to edit restaurant here -->
+                                    <a href="/restaurants/{{ restaurant.getId }}">Edit resto</a>
+                                </li>
                             </ul>
                         </li>
                     {% endfor %}

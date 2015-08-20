@@ -4,14 +4,16 @@
     require_once __DIR__."/../src/Cuisine.php";
     require_once __DIR__."/../src/Restaurant.php";
 
+    // We need to enable patch and delete http methods in order to use them for routes
+    use Symfony\Component\HttpFoundation\Request;
+    Request::enableHttpMethodParameterOverride();
+
+    $app = new Silex\Application();
+
     $server = 'mysql:host=localhost;dbname=food_finder';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
-
-
-
-    $app = new Silex\Application();
 
     $app->register(new Silex\Provider\TwigServiceProvider(), array(
         'twig.path' => __DIR__.'/../views'
@@ -19,6 +21,16 @@
 
     // Landing page. [R]ead
     $app->get("/", function() use ($app) {
+        return $app['twig']->render('index.html.twig', array(
+            'cuisines' => Cuisine::getAll()
+        ));
+    });
+
+    // Delete all
+    $app->delete("/", function() use ($app) {
+        Cuisine::deleteAll();
+        Restaurant::deleteAll();
+
         return $app['twig']->render('index.html.twig', array(
             'cuisines' => Cuisine::getAll()
         ));
@@ -59,7 +71,7 @@
     });
 
 
-    // form for editing a cuisine
+    // Form for editing a cuisine
     $app->get("/cuisines/{id}/edit", function($id) use ($app) {
         $cuisine = Cuisine::find($id);
         return $app['twig']->render('cuisine_edit.html.twig', array('cuisine' => $cuisine));
@@ -91,25 +103,47 @@
         ));
     });
 
-    //[U]pdate a particular restaurant /restaurants/{id}
+    //[U]pdate a particular restaurant
+    $app->patch("/restaurants/{id}", function($id) use ($app) {
+        $restaurant = Restaurant::find($id);
+        $restaurant->updateName($_POST['name']);
 
-    //[Delete] a particular restaurant /restaurants/{id}
+        // get cuisine to display on feedback page
+        $cuisine_id = $restaurant->getCuisineId();
+        $cuisine = Cuisine::find($cuisine_id);
 
+        return $app['twig']->render('cuisine.html.twig', array(
+            'cuisine'=> $cuisine,
+            'restaurants' => $cuisine->getRestaurants()
+        ));
 
+    });
 
+    //[Delete] a particular restaurant
+    $app->delete("/restaurants/{id}", function($id) use ($app) {
+        $restaurant = Restaurant::find($id);
+        $cuisine_id = $restaurant->getCuisineId();
+        $restaurant->delete();
+
+        $cuisine = Cuisine::find($cuisine_id);
+
+        return $app['twig']->render('cuisine.html.twig', array(
+            'cuisine' => $cuisine,
+            'restaurants' => $cuisine->getRestaurants()
+        ));
+    });
+
+    //Display restaurant edit form
+    $app->get("/restaurants/{id}", function($id) use ($app) {
+        $restaurant = Restaurant::find($id);
+
+        return $app['twig']->render('restaurant_edit.html.twig', array(
+            'restaurant' => $restaurant
+        ));
+
+    });
 
     return $app;
-
-    //CRUD (Create,Read,Update, Delete)
-
-    //CRUD Create
-
-    //CRUD Read
-
-    //CRUD Update
-
-    //CRUD Delete
-
 
 
 ?>
