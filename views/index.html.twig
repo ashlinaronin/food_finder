@@ -13,7 +13,7 @@
             <form action="/cuisines" method="post">
                 <div class="form-group">
                     <label for="name">Cuisine name:</label>
-                    <input id="name" name="name" type="text">
+                    <input id="name" name="name" type="text" required>
 
                 </div>
                 <hr>
@@ -21,16 +21,16 @@
                 <div class="form-group">
                     <label for='spicy'>Is it spicy?</label>
                         <br>
-                    <input type="radio" name="spicy" value="1">
+                    <input type="radio" name="spicy" value="1" required>
                         I am a spicy food!! enjoy me!! <br>
-                    <input type="radio" name="spicy" value="0">
+                    <input type="radio" name="spicy" value="0" required>
                         Im not a spicy! sorry!! <br>
                 </div>
                 <!-- end spicy radio button section -->
                 <hr>
                 <div class="form-group" id="price-slider">
                     <label for="price">Cuisine price :</label>
-                    No picante <input id="price" name="price" type="range" min="0" max="5" step="1"> Molto picante
+                    0$ <input id="price" name="price" type="range" min="0" max="5" step="1"> $5
                     <hr>
                 </div>
 
